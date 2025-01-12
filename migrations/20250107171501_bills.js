@@ -5,13 +5,6 @@
 export function up(knex) {
   return knex.schema.createTable("bills", (table) => {
     table.increments("bill_id").primary();
-    table
-      .integer("user_id")
-      .unsigned()
-      .notNullable()
-      .references("id")
-      .inTable("users")
-      .onDelete("CASCADE");
     table.string("bill_name").notNullable();
     table.decimal("tax", 8, 2);
     table.integer("tip", 8, 2);

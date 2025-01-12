@@ -27,3 +27,9 @@ router.route("/").post(async (req, res) => {
 });
 
 // GET /bills/:id (View a specific bill)
+// router.route('/:bill_id').get(async(req, res) => {
+//     const { bill_id } = req.params;
+//     try {
+//         const billData = await knex("bills").join("items",)
+//     }
+// })
