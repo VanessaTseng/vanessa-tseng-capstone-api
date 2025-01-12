@@ -2,6 +2,8 @@ import "dotenv/config";
 import express from "express";
 import cors from "cors";
 
+import bills from "./routes/bills.js";
+
 // place in route
 import knex from "knex";
 import knexConfig from "./knexfile.js";
@@ -14,9 +16,9 @@ const dataBase = knex(knexConfig);
 app.use(cors());
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.send("hello");
-});
+// app.use("/items", items);
+// app.use("/cost_distribution", cost_distribution);
+app.use("/bills", bills);
 
 app.listen(PORT, () => {
   console.log(`Listening on port:${PORT}`);
