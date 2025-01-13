@@ -3,6 +3,7 @@ import express from "express";
 import cors from "cors";
 
 import bills from "./routes/bills.js";
+import items from "./routes/items.js";
 
 // place in route
 import knex from "knex";
@@ -16,7 +17,7 @@ const dataBase = knex(knexConfig);
 app.use(cors());
 app.use(express.json());
 
-// app.use("/items", items);
+app.use("/items", items);
 // app.use("/cost_distribution", cost_distribution);
 app.use("/bills", bills);
 
