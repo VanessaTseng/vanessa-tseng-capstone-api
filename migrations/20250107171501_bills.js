@@ -5,15 +5,9 @@
 export function up(knex) {
   return knex.schema.createTable("bills", (table) => {
     table.increments("bill_id").primary();
-    table
-      .integer("user_id")
-      .unsigned()
-      .notNullable()
-      .references("id")
-      .inTable("users")
-      .onDelete("CASCADE");
-    table.decimal("tax", 8, 2).notNullable();
-    table.integer("tip", 8, 2).notNullable();
+    table.string("bill_name").notNullable();
+    table.decimal("tax", 8, 2);
+    table.integer("tip", 8, 2);
     table.timestamp("created_at").defaultTo(knex.fn.now());
     table
       .timestamp("updated_at")
